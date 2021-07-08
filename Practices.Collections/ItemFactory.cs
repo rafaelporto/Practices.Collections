@@ -1,6 +1,7 @@
 ﻿using Bogus;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Text;
 
 namespace Practices.Collections
@@ -12,6 +13,17 @@ namespace Practices.Collections
         public static List<Item> CreateListItems(int count) => GetFaker.Generate(count);
         
         public static Item[] CreateArrayItems(int count) => GetFaker.Generate(count).ToArray();
+
+        public static ImmutableArray<Item> CreateImmutableArrayItems(int count)
+        { 
+            var array = GetFaker.Generate(count).ToArray();
+
+            var builder =  ImmutableArray.CreateBuilder<Item>(count);
+
+            builder.AddRange(array);
+
+            return builder.ToImmutable();
+        }
         
         public static SortedList<int, Item> CreateSortedListItems(int count) =>
             new SortedList<int, Item>(CreateDictionaryItems(count));

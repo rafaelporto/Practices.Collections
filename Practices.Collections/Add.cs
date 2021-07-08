@@ -8,7 +8,7 @@ namespace Practices.Collections
     [MemoryDiagnoser]
     [ThreadingDiagnoser]
     [SimpleJob(targetCount: 1)]
-    public class AddBenchmark
+    public class Add
     {
         private List<Item> _list;
         private Item[] _array;
@@ -20,7 +20,7 @@ namespace Practices.Collections
         private int count = 100_000;
 
 
-        public AddBenchmark()
+        public Add()
         {
             _list = new List<Item>(count);
             _array = new Item[count];

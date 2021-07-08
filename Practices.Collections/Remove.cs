@@ -1,6 +1,7 @@
 ﻿using BenchmarkDotNet.Attributes;
 using System;
 using System.Collections.Generic;
+using System.Collections.Immutable;
 using System.Linq;
 
 namespace Practices.Collections
@@ -8,8 +9,8 @@ namespace Practices.Collections
     [RankColumn]
     [MemoryDiagnoser]
     [ThreadingDiagnoser]
-    [SimpleJob(targetCount: 100)]
-    public class RemoveBenchmark
+    [SimpleJob(targetCount: 1)]
+    public class Remove
     {
         private List<Item> _list;
         private Item[] _array;
@@ -17,8 +18,9 @@ namespace Practices.Collections
         private SortedDictionary<int, Item> _sortedDictionary;
         private SortedList<int, Item> _sortedList;
         private int _index;
+        private ImmutableArray<Item> _immutableArray;
 
-        public RemoveBenchmark()
+        public Remove()
         {
             int count = 100_000;
             _list = ItemFactory.CreateListItems(count);
@@ -27,10 +29,14 @@ namespace Practices.Collections
             _sortedDictionary = ItemFactory.CreateSortedDictionaryItems(count);
             _sortedList = ItemFactory.CreateSortedListItems(count);
             _index = new Random().Next(0, count - 1);
+            _immutableArray = ItemFactory.CreateImmutableArrayItems(count);
         }
 
         [Benchmark]
         public void RemoveItemToArray() => _array[_index] = null;
+
+        [Benchmark]
+        public void RemoveItemToImmutableArray() => _immutableArray.RemoveAt(_index);
 
         [Benchmark]
         public void RemoveItemToList()

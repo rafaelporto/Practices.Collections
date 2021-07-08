@@ -8,7 +8,7 @@ namespace Practices.Collections
     [MemoryDiagnoser]
     [ThreadingDiagnoser]
     [SimpleJob(targetCount: 100)]
-    public class ReplaceBenchmark
+    public class Replace
     {
         private List<Item> _list;
         private Item[] _array;
@@ -18,7 +18,7 @@ namespace Practices.Collections
         private int _index;
         private Item _item;
 
-        public ReplaceBenchmark()
+        public Replace()
         {
             int count = 100_000;
             _list = ItemFactory.CreateListItems(count);

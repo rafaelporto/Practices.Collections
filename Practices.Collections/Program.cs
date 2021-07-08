@@ -8,7 +8,8 @@ namespace Practices.Collections
         {
             //var result = BenchmarkRunner.Run<AddBenchmark>();
             //var result = BenchmarkRunner.Run<ReplaceBenchmark>();
-            var result = BenchmarkRunner.Run<RemoveBenchmark>();
+            //var result = BenchmarkRunner.Run<Remove>();
+            var result = BenchmarkRunner.Run<ArrayToImmutable>();
         }
     }
 }
