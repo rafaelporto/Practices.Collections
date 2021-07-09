@@ -6,10 +6,10 @@ namespace Practices.Collections
     {
         static void Main(string[] args)
         {
-            //var result = BenchmarkRunner.Run<AddBenchmark>();
-            //var result = BenchmarkRunner.Run<ReplaceBenchmark>();
-            //var result = BenchmarkRunner.Run<Remove>();
-            var result = BenchmarkRunner.Run<ArrayToImmutable>();
+            BenchmarkRunner.Run<Add>();
+            BenchmarkRunner.Run<Replace>();
+            BenchmarkRunner.Run<Remove>();
+            BenchmarkRunner.Run<ArrayToImmutable>();
         }
     }
 }

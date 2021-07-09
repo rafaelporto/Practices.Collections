@@ -6,11 +6,11 @@ namespace Practices.Collections
 	[RankColumn]
 	[MemoryDiagnoser]
 	[ThreadingDiagnoser]
-	[SimpleJob(targetCount: 50)]
+	[SimpleJob(targetCount: 1)]
 	public class ArrayToImmutable
 	{
 		private Item[] _array;
-		private int count = 100;
+		private int count = 100_000;
 		private ImmutableArray<Item>.Builder _immutableArrayBuilder;
 
 		public ArrayToImmutable()

@@ -7,7 +7,7 @@ namespace Practices.Collections
     [RankColumn]
     [MemoryDiagnoser]
     [ThreadingDiagnoser]
-    [SimpleJob(targetCount: 100)]
+    [SimpleJob(targetCount: 1)]
     public class Replace
     {
         private List<Item> _list;
